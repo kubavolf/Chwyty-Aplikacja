@@ -1,4 +1,4 @@
-# Opis-aplikacji
+# Chwyty-Aplikacja
 Do zaprojektowania wybrałem aplikację która ma pomóc początkującym gitarzystom w nauce i zapamiętaniu chwytów.   Grając i przeglądając chwyty będzie można również nagrywać i dodawać swoje, bardziej lub mniej zaawansowane.   Oryginalnych akordów, będzie wiele. Każdy z nich będzie miał kilka wariantów - Zarówno dźwiękowych jak i graficznych.   Interfejs będzie przyjazny i intuicyjny. W aplikacji będzie funkcja stroika i metronomu. Stroikiem można również przestrajać gitarę na inne tonacje.
 
 
