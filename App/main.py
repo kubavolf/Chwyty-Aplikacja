@@ -63,6 +63,26 @@ window.new_window_b.create_sound_button(image="border-image:url(B-7.png)", x_cor
 window.new_window_b.create_sound_button(image="border-image:url(B-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
 window.new_window_b.create_sound_button(image="border-image:url(B-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
 
+window.new_window_cis.create_sound_button(image="border-image:url(Cis-7.png)", x_cor=60, y_cor=100, wg=285, hg=197)
+window.new_window_cis.create_sound_button(image="border-image:url(Cis-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
+window.new_window_cis.create_sound_button(image="border-image:url(Cis-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
+
+window.new_window_dis.create_sound_button(image="border-image:url(Dis-7.png)", x_cor=60, y_cor=100, wg=285, hg=197)
+window.new_window_dis.create_sound_button(image="border-image:url(Dis-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
+window.new_window_dis.create_sound_button(image="border-image:url(Dis-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
+
+window.new_window_fis.create_sound_button(image="border-image:url(Fis-7.png)", x_cor=60, y_cor=100, wg=285, hg=197)
+window.new_window_fis.create_sound_button(image="border-image:url(Fis-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
+window.new_window_fis.create_sound_button(image="border-image:url(Fis-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
+
+window.new_window_gis.create_sound_button(image="border-image:url(Gis-7.png)", x_cor=60, y_cor=100, wg=285, hg=197)
+window.new_window_gis.create_sound_button(image="border-image:url(Gis-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
+window.new_window_gis.create_sound_button(image="border-image:url(Gis-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
+
+window.new_window_h.create_sound_button(image="border-image:url(H-7.png)", x_cor=60, y_cor=100, wg=285, hg=197)
+window.new_window_h.create_sound_button(image="border-image:url(H-dur.png)", x_cor=440, y_cor=100, wg=285, hg=197)
+window.new_window_h.create_sound_button(image="border-image:url(H-mol.png)", x_cor=250, y_cor=350, wg=285, hg=197)
+
 
 
 
