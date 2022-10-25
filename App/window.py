@@ -22,6 +22,12 @@ class Window(QMainWindow):
         self.new_window_g = NewWindow()
         self.new_window_a = NewWindow()
         self.new_window_b = NewWindow()
+        self.new_window_cis = NewWindow()
+        self.new_window_dis = NewWindow()
+        self.new_window_fis = NewWindow()
+        self.new_window_gis = NewWindow()
+        self.new_window_h = NewWindow()
+
 
     def create_main_button(self, name, x_cor, y_cor, wg, hg):
         button = QPushButton(name, self)
@@ -42,6 +48,16 @@ class Window(QMainWindow):
             button.clicked.connect(self.a_button_click)
         elif name == "B_chords":
             button.clicked.connect(self.b_button_click)
+        elif name == "Cis_chords":
+            button.clicked.connect(self.cis_button_click)
+        elif name == "Dis_chords":
+            button.clicked.connect(self.dis_button_click)
+        elif name == "Fis_chords":
+            button.clicked.connect(self.fis_button_click)
+        elif name == "Gis_chords":
+            button.clicked.connect(self.gis_button_click)
+        elif name == "H_chords":
+            button.clicked.connect(self.h_button_click)
 
     def c_button_click(self):
         self.new_window_c.show()
@@ -63,6 +79,20 @@ class Window(QMainWindow):
 
     def b_button_click(self):
         self.new_window_b.show()
+
+    def cis_button_click(self):
+        self.new_window_cis.show()
+
+    def dis_button_click(self):
+        self.new_window_dis.show()
+
+    def fis_button_click(self):
+        self.new_window_fis.show()
+
+    def gis_button_click(self):
+        self.new_window_gis.show()
+    def h_button_click(self):
+        self.new_window_h.show()
 
     def create_logo(self):
         logo = QLabel(self)
