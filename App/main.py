@@ -86,7 +86,7 @@ window.new_window_h.create_sound_button(image="border-image:url(H-mol.png)", x_c
 
 
 
-
+#if __name__ = "__main__":
 window.show()
 
 sys.exit(app.exec())

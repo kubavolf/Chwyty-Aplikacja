@@ -91,8 +91,11 @@ class Window(QMainWindow):
 
     def gis_button_click(self):
         self.new_window_gis.show()
+
     def h_button_click(self):
         self.new_window_h.show()
+
+
 
     def create_logo(self):
         logo = QLabel(self)
