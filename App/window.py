@@ -15,18 +15,18 @@ class Window(QMainWindow):
         self.setFixedWidth(800)
         self.setStyleSheet("background-image:url(background.png); background-attachment: fixed")
         self.pixmap_logo = QPixmap("logo.png")
-        self.new_window_c = NewWindow()
-        self.new_window_d = NewWindow()
-        self.new_window_e = NewWindow()
-        self.new_window_f = NewWindow()
-        self.new_window_g = NewWindow()
-        self.new_window_a = NewWindow()
-        self.new_window_b = NewWindow()
-        self.new_window_cis = NewWindow()
-        self.new_window_dis = NewWindow()
-        self.new_window_fis = NewWindow()
-        self.new_window_gis = NewWindow()
-        self.new_window_h = NewWindow()
+        self.new_window_c = ChordsWindow()
+        self.new_window_d = ChordsWindow()
+        self.new_window_e = ChordsWindow()
+        self.new_window_f = ChordsWindow()
+        self.new_window_g = ChordsWindow()
+        self.new_window_a = ChordsWindow()
+        self.new_window_b = ChordsWindow()
+        self.new_window_cis = ChordsWindow()
+        self.new_window_dis = ChordsWindow()
+        self.new_window_fis = ChordsWindow()
+        self.new_window_gis = ChordsWindow()
+        self.new_window_h = ChordsWindow()
 
 
     def create_main_button(self, name, x_cor, y_cor, wg, hg):
@@ -116,7 +116,7 @@ def sound_button_click():
     print("clicked")
 
 
-class NewWindow(QMainWindow):
+class ChordsWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Chords")
