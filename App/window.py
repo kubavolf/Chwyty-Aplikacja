@@ -107,6 +107,7 @@ class Window(QMainWindow):
 
 def sound_button_click():
     filename = "rocket.wav"
+    global effect
     effect = QSoundEffect()
     effect.setSource(QUrl.fromLocalFile(filename))
     effect.setVolume(0.5)
