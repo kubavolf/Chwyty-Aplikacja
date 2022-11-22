@@ -1,8 +1,8 @@
 import sys
 
-from PyQt6.QtWidgets import QPushButton, QLabel, QMainWindow, QWidget, QApplication
-from PyQt6.QtGui import QIcon, QPixmap, QFont, QGuiApplication
-from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput, QSoundEffect
+from PyQt6.QtWidgets import QPushButton, QLabel, QMainWindow
+from PyQt6.QtGui import QIcon, QPixmap
+from PyQt6.QtMultimedia import QSoundEffect
 from PyQt6.QtCore import QUrl
 
 
@@ -15,86 +15,6 @@ class Window(QMainWindow):
         self.setFixedWidth(800)
         self.setStyleSheet("background-image:url(background.png); background-attachment: fixed")
         self.pixmap_logo = QPixmap("logo.png")
-        self.new_window_c = ChordsWindow()
-        self.new_window_d = ChordsWindow()
-        self.new_window_e = ChordsWindow()
-        self.new_window_f = ChordsWindow()
-        self.new_window_g = ChordsWindow()
-        self.new_window_a = ChordsWindow()
-        self.new_window_b = ChordsWindow()
-        self.new_window_cis = ChordsWindow()
-        self.new_window_dis = ChordsWindow()
-        self.new_window_fis = ChordsWindow()
-        self.new_window_gis = ChordsWindow()
-        self.new_window_h = ChordsWindow()
-
-
-    def create_main_button(self, name, x_cor, y_cor, wg, hg):
-        button = QPushButton(name, self)
-        button.setFont(QFont("Times", 15))
-        button.setGeometry(x_cor, y_cor, wg, hg)
-        button.setStyleSheet("color: rgb(255, 255, 255)")  #"border-image:url(c_chord_image.png)")
-        if name == "C_chords":
-            button.clicked.connect(self.c_button_click)
-        elif name == "D_chords":
-            button.clicked.connect(self.d_button_click)
-        elif name == "E_chords":
-            button.clicked.connect(self.e_button_click)
-        elif name == "F_chords":
-            button.clicked.connect(self.f_button_click)
-        elif name == "G_chords":
-            button.clicked.connect(self.g_button_click)
-        elif name == "A_chords":
-            button.clicked.connect(self.a_button_click)
-        elif name == "B_chords":
-            button.clicked.connect(self.b_button_click)
-        elif name == "Cis_chords":
-            button.clicked.connect(self.cis_button_click)
-        elif name == "Dis_chords":
-            button.clicked.connect(self.dis_button_click)
-        elif name == "Fis_chords":
-            button.clicked.connect(self.fis_button_click)
-        elif name == "Gis_chords":
-            button.clicked.connect(self.gis_button_click)
-        elif name == "H_chords":
-            button.clicked.connect(self.h_button_click)
-
-    def c_button_click(self):
-        self.new_window_c.show()
-
-    def d_button_click(self):
-        self.new_window_d.show()
-
-    def e_button_click(self):
-        self.new_window_e.show()
-
-    def f_button_click(self):
-        self.new_window_f.show()
-
-    def g_button_click(self):
-        self.new_window_g.show()
-
-    def a_button_click(self):
-        self.new_window_a.show()
-
-    def b_button_click(self):
-        self.new_window_b.show()
-
-    def cis_button_click(self):
-        self.new_window_cis.show()
-
-    def dis_button_click(self):
-        self.new_window_dis.show()
-
-    def fis_button_click(self):
-        self.new_window_fis.show()
-
-    def gis_button_click(self):
-        self.new_window_gis.show()
-
-    def h_button_click(self):
-        self.new_window_h.show()
-
 
 
     def create_logo(self):
@@ -105,8 +25,8 @@ class Window(QMainWindow):
         logo.move(280, 25)
 
 
-def sound_button_click():
-    filename = "rocket.wav"
+def sound_button_click(sound):
+    filename = sound
     global effect
     effect = QSoundEffect()
     effect.setSource(QUrl.fromLocalFile(filename))
@@ -126,9 +46,9 @@ class ChordsWindow(QMainWindow):
         self.setFixedWidth(800)
         self.setStyleSheet("background-image:url(new_background2.png); background-attachment: fixed")
 
-    def create_sound_button(self, image, x_cor, y_cor, wg, hg):
+    def create_sound_button(self, image, x_cor, y_cor, wg, hg, sound):
 
         button = QPushButton(self)
         button.setStyleSheet(image)
         button.setGeometry(x_cor, y_cor, wg, hg)
-        button.clicked.connect(sound_button_click)
+        button.clicked.connect(lambda: sound_button_click(sound))
