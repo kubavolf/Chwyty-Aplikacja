@@ -52,3 +52,5 @@ class ChordsWindow(QMainWindow):
         button.setStyleSheet(image)
         button.setGeometry(x_cor, y_cor, wg, hg)
         button.clicked.connect(lambda: sound_button_click(sound))
+
+
