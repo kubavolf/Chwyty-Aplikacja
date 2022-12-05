@@ -1,5 +1,5 @@
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QPushButton
+from PyQt6.QtWidgets import QPushButton, QSlider
 
 from window import ChordsWindow
 
@@ -12,7 +12,7 @@ class Chord:
         self.y_cor = y_cor
         self.wg = wg
         self.hg = hg
-        self.new_window = ChordsWindow()
+        self.new_window = ChordsWindow(self.variant)
         self.image_7 = image_7
         self.image_dur = image_dur
         self.image_mol = image_mol
@@ -48,7 +48,7 @@ class Tuner:
         self.y_cor = y_cor
         self.wg = wg
         self.hg = hg
-        self.new_window = ChordsWindow()
+        self.new_window = ChordsWindow(self.variant)
         self.image_e6 = image_e6
         self.image_a = image_a
         self.image_d = image_d
@@ -76,6 +76,37 @@ class Tuner:
         self.new_window.create_sound_button(self.image_g, x_cor=610, y_cor=150, wg=150, hg=100, sound=self.sound_g)
         self.new_window.create_sound_button(self.image_b, x_cor=230, y_cor=350, wg=150, hg=100, sound=self.sound_b)
         self.new_window.create_sound_button(self.image_e1, x_cor=420, y_cor=350, wg=150, hg=100, sound=self.sound_e1)
+
+    def on_click(self):
+        self.new_window.show()
+
+class Metronome:
+    def __init__(self, variant, x_cor, y_cor, wg, hg, image_7, sound_7, BPM):
+        self.variant = variant
+        self.x_cor = x_cor
+        self.y_cor = y_cor
+        self.wg = wg
+        self.hg = hg
+        self.new_window = ChordsWindow(self.variant)
+        self.image_7 = image_7
+        self.sound_7 = sound_7
+        self.BPM = BPM
+
+
+
+    def create_button(self, window):
+        button = QPushButton(self.variant, window)
+        button.setFont(QFont("Times", 15))
+        button.setGeometry(self.x_cor, self.y_cor, self.wg, self.hg)
+        button.setStyleSheet("color: rgb(255, 255, 255)")
+        button.clicked.connect(self.on_click)
+
+    def create_new_window(self):
+        self.new_window.create_metronome_button(self.image_7, x_cor=60, y_cor=100, wg=285, hg=197, sound=self.sound_7, BPM=self.BPM, start=True)
+        self.new_window.create_metronome_button(self.image_7, x_cor=250, y_cor=350, wg=285, hg=197, sound=self.sound_7,
+                                                BPM=self.BPM, start=False)
+        self.new_window.create_slider()
+
 
     def on_click(self):
         self.new_window.show()

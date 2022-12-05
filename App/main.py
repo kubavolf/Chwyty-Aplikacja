@@ -2,8 +2,8 @@ from window import Window
 import sys
 from PyQt6.QtWidgets import QApplication
 
-from Chord import Chord
-from Chord import Tuner
+from Chord import Chord, Tuner, Metronome
+
 
 app = QApplication(sys.argv)
 
@@ -68,7 +68,7 @@ tuner = Tuner(variant="Tuner", x_cor=600, y_cor=100, wg=150, hg=150,
                 sound_e6="Sounds/E6.wav", sound_a="Sounds/A.wav", sound_d="Sounds/D.wav", sound_g="Sounds/G.wav",
                 sound_b="Sounds/B.wav", sound_e1="Sounds/E1.wav")
 
-
+metronome = Metronome(variant="Metronome", x_cor=100, y_cor=100, wg=150, hg=150, image_7="border-image:url(C-7.png)", sound_7="Sounds/metron_tick.wav", BPM=0.5)
 
 akord_list = [akord_c, akord_d, akord_e, akord_f, akord_g, akord_a, akord_b, akord_cis, akord_dis, akord_fis, akord_gis, akord_h, tuner]
 
@@ -76,7 +76,10 @@ for akord in akord_list:
     akord.create_button(window)
     akord.create_new_window()
 
+metronome.create_button(window)
+metronome.create_new_window()
 
+#metronome.create_slider(window)
 
 window.create_logo()
 
