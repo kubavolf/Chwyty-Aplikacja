@@ -4,6 +4,8 @@ from PyQt6.QtWidgets import QPushButton, QLabel, QMainWindow, QSlider
 from PyQt6.QtGui import QIcon, QPixmap
 from PyQt6.QtMultimedia import QSoundEffect
 from PyQt6.QtCore import QUrl, Qt
+
+import signal
 import threading
 
 class Window(QMainWindow):
@@ -48,22 +50,25 @@ def metronome_button_click(sound):
     effect.play()
     print("clicked")
 
-stop_thread = threading.Event()
+exit_event = threading.Event()
 
 
 
-def metro_loop(sound, BPM, start):
-
-
-    while start == True:
+def metro_loop(sound, BPM):
+    exit_event.clear()
+    while True:
         time.sleep(BPM)
         metronome_button_click(sound)
-        if start == False:
-            stop_thread.set()
-        if stop_thread.is_set():
+
+        if exit_event.is_set():
             break
 
-thread = threading.Thread(target=metro_loop)
+
+def signal_handler(signum, frame):
+    exit_event.set()
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 
 
@@ -85,13 +90,20 @@ class ChordsWindow(QMainWindow):
         button.clicked.connect(lambda: sound_button_click(sound))
 
 
-    def create_metronome_button(self, image, x_cor, y_cor, wg, hg, sound, BPM, start):
+    def create_metronome_button(self, image, x_cor, y_cor, wg, hg, sound, BPM):
 
         button = QPushButton(self)
         button.setStyleSheet(image)
         button.setGeometry(x_cor, y_cor, wg, hg)
-        button.clicked.connect(lambda: metro_loop(sound, BPM, start))
+        th = threading.Thread(target=metro_loop, args=[sound, BPM])
+        button.clicked.connect(lambda: th.start())
 
+    def create_metronome_stop_button(self, image, x_cor, y_cor, wg, hg, sound, BPM):
+
+        button = QPushButton(self)
+        button.setStyleSheet(image)
+        button.setGeometry(x_cor, y_cor, wg, hg)
+        button.clicked.connect(lambda: signal_handler())
 
     def create_slider(self):
         slider = QSlider(self)
