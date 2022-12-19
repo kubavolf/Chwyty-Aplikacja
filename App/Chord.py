@@ -102,9 +102,9 @@ class Metronome:
         button.clicked.connect(self.on_click)
 
     def create_new_window(self):
-        self.new_window.create_metronome_button(self.image_7, x_cor=60, y_cor=100, wg=285, hg=197, sound=self.sound_7, BPM=self.BPM, start=True)
-        self.new_window.create_metronome_button(self.image_7, x_cor=250, y_cor=350, wg=285, hg=197, sound=self.sound_7,
-                                                BPM=self.BPM, start=False)
+        self.new_window.create_metronome_button(self.image_7, x_cor=60, y_cor=100, wg=285, hg=197, sound=self.sound_7, BPM=self.BPM)
+        self.new_window.create_metronome_stop_button(self.image_7, x_cor=250, y_cor=350, wg=197, hg=197, sound=self.sound_7,
+                                                BPM=self.BPM)
         self.new_window.create_slider()
 
 
