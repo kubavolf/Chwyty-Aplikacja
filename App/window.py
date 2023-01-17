@@ -1,5 +1,3 @@
-import sys
-
 from PyQt6.QtWidgets import QPushButton, QLabel, QMainWindow
 from PyQt6.QtGui import QIcon, QPixmap
 from PyQt6.QtMultimedia import QSoundEffect
@@ -15,7 +13,6 @@ class Window(QMainWindow):
         self.setFixedWidth(800)
         self.setStyleSheet("background-image:url(background.png); background-attachment: fixed")
         self.pixmap_logo = QPixmap("logo.png")
-
 
     def create_logo(self):
         logo = QLabel(self)
@@ -38,9 +35,9 @@ def sound_button_click(sound):
 
 
 class ChordsWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, variant):
         super().__init__()
-        self.setWindowTitle("Chords")
+        self.setWindowTitle(variant)
         self.setWindowIcon(QIcon("icon.png"))
         self.setFixedHeight(600)
         self.setFixedWidth(800)
@@ -52,3 +49,6 @@ class ChordsWindow(QMainWindow):
         button.setStyleSheet(image)
         button.setGeometry(x_cor, y_cor, wg, hg)
         button.clicked.connect(lambda: sound_button_click(sound))
+
+
+
